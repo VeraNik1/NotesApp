@@ -45,16 +45,20 @@ class NotesApp:
             print(note)
 
     def find_note_by_id(self, id):
-        for note in self.notes:
-            if note.id == id:
-                return note
-        return None
+        if id.isdigit():
+            for note in self.notes:
+                if note.id == int(id):
+                    return note  
+            return 
+        else:
+            print("Wrong id format")      
     
     def find_note_by_text(self, text):
+        results = []
         for note in self.notes:
             if text in note.body or text in note.title:
-                return note
-        return None
+                results.append(note)
+        return results
 
     def edit_note_by_id(self, id, title, body):
         note = self.find_note_by_id(id)
@@ -70,13 +74,13 @@ class NotesApp:
         if note:
             self.notes.remove(note)
             self.save_notes()
-            print(f"Note №{id} deleted.")
+            print(f"Note №{id} has been deleted.")
         else:
-            print(f"Note №{id} not found.")
+            print(f"Note №{id} hasn't been found.")
 
     def get_max_id(self):
         if not self.notes:
             return 0
         return max(note.id for note in self.notes)
     
-    
+
