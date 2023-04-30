@@ -40,7 +40,7 @@ Class menu has the method show() which shows all possible options for work with 
 
 Every option calls the conforming method from class NotesApp
 
-## Class NoteLine
+## Class Note
 
 It's a note which has 5 properties (fields): identificator (id), title, description (body), date and time of creation (created_at), date and time of last update (updated_at).
 Also it has method edit() for note's title and description updating.
